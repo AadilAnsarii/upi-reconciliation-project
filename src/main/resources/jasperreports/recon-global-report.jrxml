@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports
+              http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="Reconciliation Report"
+              pageWidth="1000"
+              pageHeight="842"
+              columnWidth="960"
+              leftMargin="20"
+              rightMargin="20"
+              topMargin="20"
+              bottomMargin="20">
+
+
+    <parameter name="reportHeader" class="java.lang.String"/>
+
+    <field name="rowData" class="java.lang.String"/>
+
+    <title>
+        <band height="40" splitType="Stretch">
+            <textField textAdjust="StretchHeight">
+                <reportElement x="0" y="0" width="9999" height="20" uuid="01234567-89ab-cdef-0123-456789abcdef" />
+                <textFieldExpression><![CDATA[$P{reportHeader}]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+
+    <detail>
+        <band height="20" splitType="Stretch">
+            <textField textAdjust="StretchHeight">
+                <reportElement x="0" y="0" width="9999" height="20" uuid="01234567-89ab-cdef-0123-456789abcde0" />
+                <textFieldExpression><![CDATA[$F{rowData}.replace("\"", "")]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+
+</jasperReport>

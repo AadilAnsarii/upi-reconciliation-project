@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports 
+              http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="Transaction Report"
+              pageWidth="1000"
+              pageHeight="842"
+              columnWidth="540"
+              leftMargin="20"
+              rightMargin="20"
+              topMargin="20"
+              bottomMargin="20">
+
+    <!-- Define Styles -->
+    <style name="titleStyle" fontName="Arial" fontSize="14" isBold="true"/>
+    <style name="headerStyle" fontName="Arial" fontSize="12" isBold="true"/>
+    <style name="columnStyle" fontName="Arial" fontSize="10"/>
+    <style name="dataStyle" fontName="Arial" fontSize="10"/>
+
+    <!-- Define Parameters -->
+    <parameter name="reportTitle" class="java.lang.String"/>
+
+    <!-- Define Fields -->
+    <field name="transactionId" class="java.lang.String"/>
+    <field name="tranDate" class="java.util.Date"/>
+    <field name="txnExtractionDate" class="java.util.Date"/>
+    <field name="postingDate" class="java.util.Date"/>
+    <field name="payerAccountNumber" class="java.lang.String"/>
+    <field name="payeeAccountNumber" class="java.lang.String"/>
+    <field name="netAmount" class="java.lang.Double"/>
+    <field name="payeeMerchantId" class="java.lang.String"/>
+    <field name="referenceNumber" class="java.lang.String"/>
+    <field name="postingBatchId" class="java.lang.String"/>
+    <field name="status" class="java.lang.String"/>
+    <field name="batchPostingStatus" class="java.lang.String"/>
+    <field name="idempotentKey" class="java.lang.String"/>
+    <field name="totalAmount" class="java.lang.Double"/>
+
+    <!-- Title Band -->
+    <pageHeader>
+        <band height="50">
+            <textField>
+                <reportElement x="60" y="10" width=CommonConstants.STATUS_200 height="30"/>
+                <textFieldExpression><![CDATA[$P{reportTitle}]]></textFieldExpression>
+            </textField>
+            <line>
+                <reportElement x="0" y="45" width="540" height="1"/>
+            </line>
+        </band>
+    </pageHeader>
+
+    <!-- Column Header Band -->
+    <columnHeader>
+        <band height="40">
+            <textField>
+                <reportElement x="0" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA["Transaction ID"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="50" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA["Transaction Date"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="50" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA["Txn Extraction Date"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="50" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA["Posting Date"]]></textFieldExpression>
+            </textField>
+                <textField>
+                <reportElement x="50" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA["Payer Account Number"]]></textFieldExpression>
+            </textField>
+            
+            <textField>
+                <reportElement x="50" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA["Total Amount"]]></textFieldExpression>
+            </textField>
+        </band>
+    </columnHeader>
+
+    <!-- Detail Band -->
+    <detail>
+        <band height="40">
+            <textField>
+                <reportElement x="0" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA[$F{transactionId}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="50" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA[$F{tranDate}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="50" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA[$F{txnExtractionDate}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="50" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA[$F{postingDate}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="50" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA[$F{payerAccountNumber}]]></textFieldExpression>
+            </textField>
+             <textField>
+                <reportElement x="50" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA[$F{totalAmount}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+
+    <!-- Footer Band -->
+    <pageFooter>
+        <band height="50">
+            <textField>
+                <reportElement x="60" y="10" width=CommonConstants.STATUS_200 height="30"/>
+                <textFieldExpression><![CDATA["End of Report"]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+</jasperReport>
